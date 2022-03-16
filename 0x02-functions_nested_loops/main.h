@@ -1,7 +1,11 @@
 /*char _putchar(char i)
 {
 	printf('%c', i);
+
+
 }
+*
+* print_alphabet - a function to  print alphabets
 */
 void print_alphabet(void)
 {
@@ -9,7 +13,7 @@ void print_alphabet(void)
 
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		putchar(ch);
+		putchar('%c', ch);
 		putchar('\n');
 	}
 }
