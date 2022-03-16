@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+#include "main.h"
 
 /**
  * main - entry point
@@ -8,12 +8,6 @@
  */
 int main(void)
 {
-	char ch;
-
-	for (ch = 'a'; ch <= 'z'; ch++)
-	{
-		putchar(ch);
-		putchar('\n');
-	}
+	print_alphabet();
 	return (0);
 }
