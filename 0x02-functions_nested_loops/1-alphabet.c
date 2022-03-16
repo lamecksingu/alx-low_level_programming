@@ -1,5 +1,8 @@
 #include<stdio.h>
+
+/**
 #include "main.h"
+*/
 
 /**
  * main - entry point
@@ -13,6 +16,7 @@ int main(void)
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
 		putchar(ch);
+		putchar('\n');
 	}
 	return (0);
 }
