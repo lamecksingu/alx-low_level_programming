@@ -1,3 +1,5 @@
+#include<stdlib.h>
+#include<stdio.h>
 /*char _putchar(char i)
 {
 	printf('%c', i);
@@ -13,7 +15,7 @@ void print_alphabet(void)
 
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		putchar('%c', ch);
+		putchar(ch);
 		putchar('\n');
 	}
 }
