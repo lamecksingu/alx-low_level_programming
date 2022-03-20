@@ -5,7 +5,7 @@
  * @a: first interger
  * @b: second interger
  *
- * Return: return multipled numbers
+ * Return: result (multipled numbers)
  */
 int mul(int a, int b)
 {
