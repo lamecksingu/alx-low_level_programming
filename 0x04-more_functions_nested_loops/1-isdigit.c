@@ -9,11 +9,12 @@
  */
 int _isdigit(int c)
 {
-	c = 0;
-	while (c <= 9)
+	if (c <= 0 && c >= 9)
 	{
 		return (1);
 	}
-	c++;
-	return (0);
+	else
+	{
+		return (0);
+	}
 }
