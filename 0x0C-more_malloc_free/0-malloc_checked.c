@@ -9,7 +9,7 @@ nclude <stdlib.h>
  */
 void *malloc_checked(unsigned int b)
 {
-	char *p;
+	void *p;
 
 	p = malloc(b);
 	if (p == NULL)
