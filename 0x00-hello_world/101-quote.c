@@ -1,21 +1,16 @@
-#include<stdio.h>
 #include <unistd.h>
-#include <fcntl.h>
-
+#include <stdio.h>
 /**
- * main - Entry point
+ * main - Prints "and that piece of art is useful" - Dora Korpar, 2015-10-19",
+ *                followed by a new line, to standard error.
  *
- * Return: Always 1 (Success)
+ * Return: Always 1.
  */
-
 int main(void)
 {
-	const char message[] = "and that piece of art is useful
-		\" - Dora Korpar, 2015-10-19\n";
-
-	int fd = open("/dev/stderr", O_WRONLY);
-	write(fd, message, sizeof(message)-1);
-	close(fd);
+	write(2,
+	      "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n",
+	      59);
 
 	return (1);
 }
