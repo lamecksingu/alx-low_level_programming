@@ -1,17 +1,23 @@
 #include "main.h"
 #include <unistd.h>
+
 /**
- * main - entry point
- * Return: 0 Always Success
- *
  * _putchar - writes the character c to stdout
+ *
  * @c: The character to print
+ *
+ * Return: Character passed to it
  */
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
+/**
+ * main - entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	_putchar('_');
