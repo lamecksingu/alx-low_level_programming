@@ -8,18 +8,19 @@
 void rev_string(char *s)
 {
 	int len = 0;
-	int i;
+	int i, j;
+	char temp;
 
 	/*get lenth of a string*/
 	while (s[len] != '\0')
 	{
 		len++;
 	}
-	/*print string in revese*/
-	for (i = len - 1; i >= 0; i--)
+	/*swap characters from start to end*/
+	for (i = 0, j = len - 1; i < j; i++, j--)
 	{
-		_putchar(s[i]);
+		temp = s[i];
+		s[i] = s[j];
+		s[j] = temp;
 	}
-	/*print new line*/
-	_putchar('\n');
 }
