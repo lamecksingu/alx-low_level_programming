@@ -17,10 +17,11 @@ int main(void)
 	int length = rand() % (MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
 	char password[length + 1];
 	const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int i;
 
 	srand(time(NULL));
 
-	for (int i = 0; i < length; i++)
+	for (i = 0; i < length; i++)
 	{
 		password[i] = charset[rand() % (sizeof(charset) - 1)];
 	}
