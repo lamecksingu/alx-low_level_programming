@@ -1,31 +1,45 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-#define MIN_LENGTH 6
-#define MAX_LENGTH 12
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - creates random valid passwords
+ * program 101-crackme
+ * Return: Always 0
  */
-
 int main(void)
 {
-	int length = rand() % (MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
-	char password[length + 1];
-	const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	int i;
+	char password[84];
+	int index = 0, sum = 0, diff_half1, diff_half2;
 
-	srand(time(NULL));
-
-	for (i = 0; i < length; i++)
+	srand(time(0));
+	while (sum < 2772)
 	{
-		password[i] = charset[rand() % (sizeof(charset) - 1)];
+		password[index] = 33 + rand() % 94;
+		sum += password[index++];
 	}
-	password[length] = '\0';
-	printf("Password for 101-crackme: %s\n", password);
+	password[index] = '\0';
+	if (sum != 2772)
+	{
+		diff_half1 = (sum - 2772) / 2;
+		diff_half2 = (sum - 2772) / 2;
+		if ((sum - 2772) % 2 != 0)
+			diff_half1++;
+		for (index = 0; password[index]; index++)
+		{
+			if (password[index] >= (33 + diff_half1))
+			{
+				password[index] -= diff_half1;
+				break;
+			}
+		}
+		for (index = 0; password[index]; index++)
+		{
+			if (password[index] >= (33 + diff_half2))
+				password[index] -= diff_half2;
+			else
+				password[index] += (94 - diff_half2);
+		}
+	}
+	printf("%s", password);
 	return (0);
 }
