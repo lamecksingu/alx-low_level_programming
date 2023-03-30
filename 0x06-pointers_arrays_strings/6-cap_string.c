@@ -1,48 +1,31 @@
 #include "main.h"
 
 /**
- * cap_string - capitalizes words
- * @str: The string to capitalize
+ * cap_string - capitalize the string
+ * @s: the string to be capitalized
  *
- * Return: Capitlized Word
+ * Return: Capitalized String
  */
-
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	/*start with the first character in the string*/
-	char *ptr = str;
+	int a = 0, i;
+	int cspc = 13;
+	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
 
-	/*iterate through each character in the string*/
-	while (*ptr != '\0')
+	while (s[a])
 	{
-		/*check if the current character is a separator*/
-		if (*ptr == ' ' || *ptr == '\t' || *ptr == '\n' ||
-				*ptr == ',' || *ptr == ';' || *ptr == '.' ||
-				*ptr == '!' || *ptr == '?' || *ptr == '"' ||
-				*ptr == '(' || *ptr == ')' || *ptr == '{' || *ptr == '}')
-			/*move to the next character*/
-			ptr++;
+		i = 0;
 
-		/*otherwise, capitalize the current word*/
-		else
+		while (i < cspc)
 		{
-			/*capitalize the first character of the word*/
-			if (*ptr >= 'a' && *ptr <= 'z')
-				*ptr = *ptr - ('a' - 'A');
+			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
+				s[a] -= 32;
+
+			i++;
 		}
-		/*move to the next character in the word*/
-		ptr++;
-		/*capitalize the rest of the word*/
-		while (*ptr != '\0' && *ptr != ' ' && *ptr != '\t' && *ptr != '\n' &&
-				*ptr != ',' && *ptr != ';' && *ptr != '.' &&
-				*ptr != '!' && *ptr != '?' && *ptr != '"' &&
-				*ptr != '(' && *ptr != ')' && *ptr != '{' && *ptr != '}')
-		{
-			if (*ptr >= 'A' && *ptr <= 'Z')
-				*ptr = *ptr + ('a' - 'A');
-			ptr++;
-		}
+
+		a++;
 	}
-	/*return the modified string*/
-	return (str);
+
+	return (s);
 }
