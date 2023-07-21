@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 {
 	/*declare variables to hold the variable arguments*/
 	char c;
-	int i;
+	int i, first_arg = 1;
 	float f;
 	char *s;
 	/* create a pointer to traverse the format string*/
@@ -26,24 +26,33 @@ void print_all(const char * const format, ...)
 		if (*ptr == 'c')
 		{
 			c = va_arg(args, int);
+			if (!first_arg)
+				printf(", ");
 			printf("%c", c);
 		} else if (*ptr == 'i')
 		{
 			i = va_arg(args, int);
+			if (!first_arg)
+				printf(", ");
 			printf("%d", i);
 		} else if (*ptr == 'f')
 		{
 			f = va_arg(args, double);
+			if (!first_arg)
+				printf(", ");
 			printf("%f", f);
 		} else if (*ptr == 's')
 		{
 			s = va_arg(args, char*);
+			if (!first_arg)
+				printf(", ");
 			if (s == NULL)
 				printf("(ni)");
 			else
 				printf("%s", s);
 		}
 		/*move to the next format character*/
+		first_arg = 0;
 		ptr++;
 	}
 	va_end(args);
