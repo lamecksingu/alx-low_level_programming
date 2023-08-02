@@ -21,5 +21,5 @@ listint_t *reverse_listint(listint_t **head)
 	}
 	/*update the head to point to the last node(new first node)*/
 	*head = prev;
-	return (*head);
+	return (current);
 }
