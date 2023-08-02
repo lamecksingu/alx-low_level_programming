@@ -12,12 +12,12 @@ listint_t *reverse_listint(listint_t **head)
 	while (current != NULL)
 	{
 		/*store the next node temporarily*/
-		listint_t *next = current->next;
+		listint_t *n = current->next;
 		/*reverse the next pointer of the current node*/
 		current->next = prev;
 		/*move prev and current one step forwad*/
 		prev = current;
-		current = next;
+		current = n;
 	}
 	/*update the head to point to the last node(new first node)*/
 	*head = prev;
