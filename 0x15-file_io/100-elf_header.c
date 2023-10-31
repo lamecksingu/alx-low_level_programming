@@ -29,7 +29,12 @@ void print_elf_header_info(Elf64_Ehdr *header)
 			header->e_type);
 	printf("  Entry point address:               0x%lx\n", header->e_entry);
 }
-
+/**
+ * main - entry point
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 always success
+ */
 int main(int argc, char *argv[])
 {
 	int fd;
